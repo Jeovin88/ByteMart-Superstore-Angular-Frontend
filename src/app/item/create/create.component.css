@@ -1,0 +1,11 @@
+input {
+    width: 400px;
+}
+
+.itemName {
+    width: 500px;
+}
+
+.container, .container-lg, .container-md, .container-sm {
+    max-width: 500px; 
+}

@@ -1,0 +1,87 @@
+<div class="container" style="width:200" >
+    <h5>Update Item</h5>
+   
+    <a href="/item/index" routerLink="/item/index" class="btn btn-primary">&nbsp;Back&nbsp;</a>
+          
+    <form [formGroup]="form" (ngSubmit)="submit()" >
+
+        <div class="form-group" style="width:10" >
+            <label for="itemNo">Item No:</label>
+            <input 
+                formControlName="itemNo"
+                id="itemNo" 
+                type="text"  
+                [(ngModel)]="item.itemNo" 
+                class="form-control" >
+        </div>
+    
+        <div class="form-group">
+            <label for="itemName">Item Name:</label>
+            <input 
+                formControlName="itemName"
+                id="itemName" 
+                type="text" 
+                [(ngModel)]="item.itemName"
+                class="form-control"  width="200">
+            <div *ngIf="f['itemName'].touched && f['itemName'].invalid" class="alert alert-danger">
+                <div *ngIf="f['itemName'].errors && f['itemName'].errors['required']">Item Name is required.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="itemDesc">Desc:</label>
+            <input 
+                formControlName="itemDesc"
+                id="itemDesc" 
+                type="text" 
+                [(ngModel)]="item.itemDesc" width="300"
+                class="form-control">
+            <div *ngIf="f['itemDesc'].touched && f['itemDesc'].invalid" class="alert alert-danger">
+                <div *ngIf="f['itemDesc'].errors && f['itemDesc'].errors['required']">Item Desc is required.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="categoryId">Category:</label>
+            <input 
+                formControlName="categoryId"
+                id="categoryId" 
+                type="text" 
+                [(ngModel)]="item.categoryId" width="100"
+                class="form-control">
+            <div *ngIf="f['categoryId'].touched && f['categoryId'].invalid" class="alert alert-danger">
+                <div *ngIf="f['categoryId'].errors && f['categoryId'].errors['required']">Category is required.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="quantity">Quantity:</label>
+            <input 
+                formControlName="quantity"
+                id="quantity" 
+                type="text" 
+                [(ngModel)]="item.quantity" width="100"
+                class="form-control">
+            <div *ngIf="f['quantity'].touched && f['quantity'].invalid" class="alert alert-danger">
+                <div *ngIf="f['quantity'].errors && f['quantity'].errors['required']">Quantity is required.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="price">Price:</label>
+            <input 
+                formControlName="price"
+                id="price" 
+                type="text" 
+                [(ngModel)]="item.price" width="100"
+                class="form-control">
+            <div *ngIf="f['price'].touched && f['price'].invalid" class="alert alert-danger">
+                <div *ngIf="f['price'].errors && f['price'].errors['required']">Price is required.</div>
+            </div>
+        </div>
+           
+           
+         
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Update</button>
+    </form>
+</div>
